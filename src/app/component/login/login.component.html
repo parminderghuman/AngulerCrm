@@ -1,0 +1,51 @@
+<form [formGroup]="form" (ngSubmit)="login()" class="center-contianer">
+
+    <div class="p-fluid  p-shadow-10 round">
+        <div class="p-col-12 p-md-4 username">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon">
+                    <i class="pi pi-user"></i>
+                </span>
+                <span class="p-float-label">
+
+                    <input type="text" pInputText placeholder="" formControlName="username" />
+                    <label>Username</label>
+                </span>
+            </div>
+
+        </div>
+        <div class="p-col-12 p-md-4 password">
+            <div class="p-inputgroup">
+                <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
+
+                <span class="p-float-label">
+                    <input type="password" pPassword formControlName="password" placeholder=""
+                        promptLabel="Enter a password" />
+                    <label>Password</label>
+                </span>
+            </div>
+
+        </div>
+        <div class="p-field-checkbox checkbox">
+            <p-checkbox name="city1" value="Chicago" inputId="city1"></p-checkbox>
+            <label for="city1">Remember me</label>
+        </div>
+
+        <div class="button">
+            <button pButton type="submit" label="Login" [disabled]="!form.valid" icon="pi pi-check"
+                iconPos="left"></button>
+
+        </div>
+        <div class="button text">
+            <div class="p-inputgroup p-jc-center">
+                <a>Forget Password</a>
+            </div>
+        </div>
+        <div class="button ">
+            <div class="p-inputgroup p-jc-center">
+                <a>Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+</form>

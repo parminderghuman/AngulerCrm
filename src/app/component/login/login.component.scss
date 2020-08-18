@@ -1,0 +1,32 @@
+.center-contianer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    .username{
+        padding-top: 25px;
+    }
+    .password{
+        padding-top: 17px;
+    }
+    .button{
+        margin-left: 8px;
+        margin-right: 6px;
+    
+    }
+    .text{
+        padding: 5px;
+    }
+    .round{
+        border-radius: 5px;
+        padding: 13px 44px;
+    } 
+    a{
+        color:#2196F3;
+    }
+    .checkbox{
+        
+        padding: 0 0 10px 9px;
+        margin-bottom: 0px;
+    }
+}
