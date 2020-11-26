@@ -1,51 +1,33 @@
-<form [formGroup]="form" (ngSubmit)="login()" class="center-contianer">
-
-    <div class="p-fluid  p-shadow-10 round">
-        <div class="p-col-12 p-md-4 username">
-            <div class="p-inputgroup">
-                <span class="p-inputgroup-addon">
-                    <i class="pi pi-user"></i>
-                </span>
-                <span class="p-float-label">
-
-                    <input type="text" pInputText placeholder="" formControlName="username" />
-                    <label>Username</label>
-                </span>
-            </div>
-
-        </div>
-        <div class="p-col-12 p-md-4 password">
-            <div class="p-inputgroup">
-                <span class="p-inputgroup-addon"><i class="pi pi-key"></i></span>
-
-                <span class="p-float-label">
-                    <input type="password" pPassword formControlName="password" placeholder=""
-                        promptLabel="Enter a password" />
-                    <label>Password</label>
-                </span>
-            </div>
-
-        </div>
-        <div class="p-field-checkbox checkbox">
-            <p-checkbox name="city1" value="Chicago" inputId="city1"></p-checkbox>
-            <label for="city1">Remember me</label>
-        </div>
-
-        <div class="button">
-            <button pButton type="submit" label="Login" [disabled]="!form.valid" icon="pi pi-check"
-                iconPos="left"></button>
-
-        </div>
-        <div class="button text">
-            <div class="p-inputgroup p-jc-center">
-                <a>Forget Password</a>
-            </div>
-        </div>
-        <div class="button ">
-            <div class="p-inputgroup p-jc-center">
-                <a>Sign Up</a>
-            </div>
+<div class="col-md-6 offset-md-3 mt-5">
+    <div class="card">
+        <h4 class="card-header">Login</h4>
+        <div class="card-body">
+            <form [formGroup]="form" (ngSubmit)="login()">
+                <div class="form-group">
+                    <label for="username">*Username</label>
+                    <input type="text" id="username" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': (form.controls.username.dirty ) &&  form.controls.username.errors }" />
+                    <div *ngIf="(form.controls.username.dirty ) && form.controls.username.errors" class="invalid-feedback">
+                        <div *ngIf="form.controls.username.errors.required">Username is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">*Password</label>
+                    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid':  (form.controls.password.dirty ) &&  form.controls.password.errors }"  />
+                    <div  *ngIf="(form.controls.password.dirty ) && form.controls.password.errors" class="invalid-feedback">
+                        <div *ngIf="form.controls.username.errors.required" >Password is required</div>
+                    </div>
+                   
+                </div>
+                <div class="form-group">
+                   
+                    <button [disabled]=" !form.valid" class="btn btn-primary">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        <span *ngIf="!loading" class="check mr-1"></span>
+                        Login
+                    </button>
+                    <a routerLink="../register" class="btn btn-link">Register</a>
+                   
+                </div>
+            </form>
         </div>
     </div>
-
-</form>

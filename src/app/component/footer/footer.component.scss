@@ -1,7 +1,15 @@
 .footer-parent{
-    position: sticky;
+    .footer-parent-fixed{
+    position: fixed  ;
     bottom: 0;
-    .footer-content{
-       padding: 5px;align-items: center;justify-content: center;
+    width: 100%;
+    
+      
     }
+    .footer-parent-transape{
+        opacity: 0;
+    }
+    .footer-content{
+        padding: 5px;align-items: center;justify-content: center;
+        }
 }

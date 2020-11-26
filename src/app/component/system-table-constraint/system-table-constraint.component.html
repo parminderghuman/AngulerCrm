@@ -1,0 +1,36 @@
+<form  *ngIf="constraintForm" [formGroup]="constraintForm">
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header class="mt-1">
+            <mat-panel-title>
+             {{constraintForm.controls.name.value}}
+            </mat-panel-title>
+            <mat-panel-title>
+                {{constraintForm.controls.constraintType.value}}
+               </mat-panel-title>
+            <mat-icon (click)="delete()">delete</mat-icon>
+          </mat-expansion-panel-header>
+    <mat-form-field class="col-md-6" color='primary'>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name"  >
+      </mat-form-field>
+   
+
+    <mat-form-field class="col-md-6"  color='primary'>
+        <mat-label>Type</mat-label>
+        <mat-select matNativeControl  formControlName="constraintType" name="constraintType">
+          <mat-option *ngFor="let car of constraintTypes" [value]="car.value">
+            {{car.label}} 
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="col-md-6"  color='primary'>
+        <mat-label>Type</mat-label>
+        <mat-select   formControlName="columns" name="columns" multiple>
+          <mat-option *ngFor="let car of columns" [value]="car.controls.name.value">
+            {{car.controls.name.value}} 
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-expansion-panel>
+</form>

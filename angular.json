@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "newUiApp"
+  "defaultProject": "newUiApp",
+  "cli": {
+    "analytics": "6db6de85-6126-426e-9763-0ba83464dafb"
+  }
 }

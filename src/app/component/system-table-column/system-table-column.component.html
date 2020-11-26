@@ -1,0 +1,123 @@
+
+<form  *ngIf="columnForm" [formGroup]="columnForm">
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header class="mt-1">
+            <mat-panel-title>
+             {{columnForm.controls.name.value}}
+            </mat-panel-title>
+            <mat-panel-description>
+             {{columnForm.controls.columnType.value}}
+            </mat-panel-description>
+            <mat-icon (click)="delete()">delete</mat-icon>
+          </mat-expansion-panel-header>
+    <mat-form-field class="col-md-6" color='primary'>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name"  >
+      </mat-form-field>
+
+      <mat-form-field class="col-md-6" color='primary'>
+        <mat-label>Table Name</mat-label>
+        <input matInput formControlName="hiddenName"  >
+      </mat-form-field>
+
+      <mat-form-field class="col-md-6" color='primary'>
+        <mat-label>Options</mat-label>
+        <input matInput formControlName="options"  >
+      </mat-form-field>
+      <mat-form-field  class="col-md-2">
+        <mat-label>Type</mat-label>
+        <mat-select matNativeControl  formControlName="columnType" name="columnType">
+          <mat-option *ngFor="let car of types" [value]="car.value">
+            {{car.label}} 
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field *ngIf='columnForm.controls.columnType.value == "Refrence" || columnForm.controls.columnType.value == "MultiRefrence" '
+       class="col-md-4"  color='primary'>
+        <mat-label>Target Class</mat-label>
+        <mat-select matNativeControl  formControlName="targetClass" name="targetClass">
+          <mat-option *ngFor="let systemTable of systemTables" [value]="systemTable.id">
+            {{systemTable.name +" - "+systemTable.id}} 
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      
+      <mat-form-field class="col-md-6" color='primary'>
+        <mat-label>Default Value</mat-label>
+        <input matInput formControlName="defaultValue"  >
+      </mat-form-field>
+
+      <mat-form-field class="col-md-6" color='primary'>
+        <mat-label>Max Value</mat-label>
+        <input matInput formControlName="maxValue"  >
+      </mat-form-field>
+
+      <mat-form-field class="col-md-6" color='primary'>
+        <mat-label>Min Value</mat-label>
+        <input matInput formControlName="minValue"  >
+      </mat-form-field>
+
+      <mat-form-field class="col-md-6" color='primary'>
+        <mat-label>Validation Regex</mat-label>
+        <input matInput formControlName="validationRegex"  >
+      </mat-form-field>
+
+      <mat-form-field class="col-md-6" color='primary'>
+        <mat-label>Validate Function</mat-label>
+        <input matInput formControlName="validateFunction"  >
+      </mat-form-field>
+
+     
+        <mat-checkbox
+          class="col-md-3"
+          formControlName="isRequired"
+          >
+          Is Required?
+      </mat-checkbox>
+
+      <mat-checkbox
+          class="col-md-3"
+          formControlName="isSaveInTable"
+          >
+          Is SaveInTable?
+      </mat-checkbox>
+
+      <mat-checkbox
+          class="col-md-3"
+          formControlName="isCreateInLine"
+          >
+          Is CreateInLine?
+      </mat-checkbox>
+      <mat-checkbox
+          class="col-md-3"
+          formControlName="isNull"
+          >
+       Is Null Allow?
+      </mat-checkbox>
+
+      <mat-form-field class="col-md-6"  color='primary'>
+        <mat-label>Column Status</mat-label>
+        <mat-select matNativeControl  formControlName="columnStatus" name="columnStatus">
+          <mat-option *ngFor="let car of statuses" [value]="car.value">
+            {{car.label}} 
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="col-md-6" color='primary'>
+        <mat-label>max Length</mat-label>
+        <input matInput formControlName="maxLength"  >
+      </mat-form-field>
+
+      <mat-form-field class="col-md-6" color='primary'>
+        <mat-label>Min Lenght</mat-label>
+        <input matInput formControlName="minLenght"  >
+      </mat-form-field>
+
+      <mat-form-field class="col-md-6" color='primary'>
+        <mat-label>Error Message</mat-label>
+        <input matInput formControlName="errorMessage"  >
+      </mat-form-field>
+    </mat-expansion-panel>
+</form>
